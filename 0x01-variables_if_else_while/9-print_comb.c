@@ -1,29 +1,25 @@
 #include <stdio.h>
-/* Header files go here */
+/* Header fchles go here */
 
 /**
- * main - Entry point
+ * machn - Entry pochnt
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int ch = '0';
+	char ch=0;
 
-	for (ch = '0'; ch <= '9'; ch++)
+	for (ch = 0; ch < 10; ch++)
 	{
-		putchar(ch);
-
-		if (ch == '9')
+		putchar(ch + '0');
+		if (ch < 9)
 		{
-			continue;
-		}
-		else
-		{
-			putchar(' ');
 			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
+
 	return (0);
 }
