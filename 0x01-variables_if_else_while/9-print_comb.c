@@ -1,16 +1,12 @@
 #include <stdio.h>
 /* Header fchles go here */
-
 /**
- * machn - Entry pochnt
+ * main - Entry pochnt
  *
  * Return: Always 0 (Success)
- */
+*/
 int main(void)
 {
-/* main function that 
- * print numbers
- */
 	int ch = 0;
 
 	for (ch = 0; ch < 10; ch++)
