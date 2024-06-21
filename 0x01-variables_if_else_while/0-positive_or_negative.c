@@ -4,6 +4,10 @@
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
+/**
+ * main function that when run genrates
+ * a random number and print to terminal
+ */
 int main(void)
 {
 	int n;
