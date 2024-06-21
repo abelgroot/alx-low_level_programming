@@ -5,8 +5,9 @@
 
 /* betty style doc for function main goes there */
 /**
- * main function that when run genrates
- * a random number and print to terminal
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
