@@ -1,20 +1,19 @@
-#include <stdio.h>
 #include "main.h"
 /* Header files go here */
 
 /**
- * _alphabet - print alphabet function 
+ * print_alphabet - print alphabet function
  *
  * Return: Always void (Success)
  */
-void _alphabet(void)
+void print_alphabet(void)
 {
 	char i = 'a';
 
-	for (i = 'a'; i <= 'z'; i++)
+	while (i <= 'z')
 	{
 		_putchar(i);
+		i++;
 	}
 	_putchar('\n');
-	return (0);
 }
