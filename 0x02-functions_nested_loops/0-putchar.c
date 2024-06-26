@@ -12,9 +12,10 @@ int main(void)
 	char text[] =  "_putchar";
 	int i = 0;
 
-	for (i = 0; text[i] != '\0'; i++)
+	while (text[i] != '\0')
 	{
 		_putchar(text[i]);
+		i++;
 	}
 	_putchar('\n');
 	return (0);
