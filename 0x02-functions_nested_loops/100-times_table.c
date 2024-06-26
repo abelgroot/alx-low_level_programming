@@ -7,10 +7,10 @@
 */
 void print_times_table(int n)
 {
+	int row, col, product;
+
 	if (n < 0 || n > 15)
 		return;
-	
-	int row, col, product;
 
 	for (row = 0; row <= n; row++)
 	{
