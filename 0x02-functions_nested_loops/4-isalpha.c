@@ -2,14 +2,14 @@
 /* Header files go here */
 
 /**
- * _islower - check alphabet is lowercase or not function
+ * _isalpha - check alphabet is lowercase or not function
  * @c: the character to check
  *
  * Return: 1 for sucess and 0 otherwise
  */
-int _islower(int c)
+int _isalpha(int c)
 {
-	while (c >= 'a' && c <= 'z')
+	while ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 	{
 		return (1);
 	}
