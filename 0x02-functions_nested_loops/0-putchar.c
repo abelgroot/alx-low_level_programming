@@ -9,6 +9,13 @@
  */
 int main(void)
 {
-	_putchar();
+	char text[] =  "_putchar";
+	int i = 0;
+
+	for (i = 0; text[i] != '\0'; i++)
+	{
+		_putchar(text[i]);
+	}
+	_putchar('\n');
 	return (0);
 }

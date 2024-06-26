@@ -4,10 +4,10 @@
 /**
  * _putchar - Entry point
  *
- * Return: Always void (Success)
+ * Return: on success 0
  */
-int _putchar(void)
+int  _putchar(char c)
 {
-	printf("_putchar\n");
-	return (0);
+	putchar(c);
+	return 0;
 }
