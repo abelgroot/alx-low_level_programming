@@ -3,6 +3,7 @@
 /**
 * print_diagonal - Prints a diagonal line on the terminal
 * @n: Number of times the character '\' should be printed
+* Return - void
 */
 void print_diagonal(int n)
 {
