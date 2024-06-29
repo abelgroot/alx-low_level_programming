@@ -10,5 +10,6 @@ int _putchar(char c);
 void more_numbers(void);
 void print_line(int n);
 void print_diagonal(int n);
+void print_squre(int n);
 
 #endif /* MAIN_H */
