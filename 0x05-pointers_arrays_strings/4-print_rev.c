@@ -12,18 +12,20 @@ void print_rev(char *s)
 
 	size = 0;
 
-	while (*s != '\0')
+	while (*s)
 	{
 		s++;
 		size++;
 	}
-	size = size--;
+	
+	_putchar(*s);
+	_putchar('\n');
 
 	while (size >= 0)
 	{
+		--s;
 		_putchar(*s);
 		size--;
-		s--;
 	}
 	_putchar('\n');
 }
