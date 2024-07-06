@@ -2,15 +2,16 @@
 
 /**
 * _strcpy - copies the string src including the terminating null byte to dest.
-* dest: destination string
-* src: source string
+* @dest: destination string
+* @src: source string
 *
-* Return: a string 
+* Return: a string
 */
 
 char *_strcpy(char *dest, char *src)
 {
 	char *ptr;
+
 	ptr = dest;
 
 	while (*src)
