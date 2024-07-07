@@ -1,21 +1,22 @@
 #include "main.h"
 #include <limits.h>
+
 /**
 * print_number - Prints an integer using _putchar
 * @n: The integer to print
 */
 void print_number(int n)
 {
-	int divisor, is_zero, digit;
+	int divisor, is_zero, is_min, digit;
 
-	divisor	= 1;
+	divisor = 1;
 	is_zero = 1;
+	is_min = 0;
 
 	if (n == INT_MIN)
 	{
-	print_number(INT_MIN / 10);
-	_putchar('0' + -(INT_MIN % 10));
-	return;
+		is_min = 1;
+		n = INT_MIN + 1;
 	}
 
 	if (n < 0)
@@ -37,13 +38,12 @@ void print_number(int n)
 			_putchar('0' + digit);
 			is_zero = 0;
 		}
-		n %= divisor;
-		divisor /= 10;
+	n %= divisor;
+	divisor /= 10;
 	}
 
-	if (is_zero && n == 0)
+	if (is_min)
 	{
-		_putchar('0');
+		_putchar('8');
 	}
 }
-
