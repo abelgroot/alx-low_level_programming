@@ -42,7 +42,7 @@ void print_number(int n)
 
 	if (is_min)
 	{
-	_putchar('8');
+		_putchar('8');
 	}
 }
 
