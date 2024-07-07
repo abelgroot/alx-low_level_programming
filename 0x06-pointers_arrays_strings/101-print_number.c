@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h>
 /**
 * print_number - Prints an integer using _putchar
 * @n: The integer to print
@@ -8,8 +8,15 @@ void print_number(int n)
 {
 	int divisor, is_zero, digit;
 
-	divisor = 1;
+	divisor	= 1;
 	is_zero = 1;
+
+	if (n == INT_MIN)
+	{
+	print_number(INT_MIN / 10);
+	_putchar('0' + -(INT_MIN % 10));
+	return;
+	}
 
 	if (n < 0)
 	{
