@@ -20,7 +20,7 @@ int main(void)
 
 	while (current_checksum < target_checksum - 126)
 	{
-		next_char = rand() % 94 + 33; /* Generate a printable ASCII character */
+		next_char = rand() % 94 + 33;
 		if (current_checksum + next_char > target_checksum) 
 		{
 			next_char = target_checksum - current_checksum;
