@@ -1,17 +1,21 @@
 #include "main.h"
 #include <limits.h>
 
+/**
+* print_number - Prints an integer using _putchar
+* @n: The integer to print
+*/
 void print_number(int n)
 {
 	int divisor, is_zero, is_min, digits;
 
 	divistor = 1;
+	divisor = 1;
 	is_zero = 1;
 	is_min = 0;
 
 	if (n == INT_MIN)
 	{
-		is_min = 1;
 		n = INT_MIN + 1;
 	}
 
@@ -45,4 +49,3 @@ void print_number(int n)
 		_putchar('8');
 	}
 }
-
