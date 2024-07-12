@@ -1,13 +1,16 @@
-#include <stdio.h>
-/* Header files go here */
+/* _putchar.c */
 
 /**
- * _putchar - Entry point
- *
- * Return: on success 0
+ * _putchar - Function to write a single character
+ * to stdout using write system call
+ * @c: input character
+ * Return: integer
  */
 int _putchar(char c)
 {
-	putchar(c);
-	return (0);
+	int stdout_fd = 1;
+
+	write(stdout_fd, &c, 1);
+	return (c);
 }
+
