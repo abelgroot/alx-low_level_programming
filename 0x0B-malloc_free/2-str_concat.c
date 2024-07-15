@@ -9,6 +9,20 @@
 * Return: a pointer to the newly allocated space in memory containing
 *         the concatenated strings, or NULL if it fails
 */
+unsigned int _strlen(char *s)
+{
+	unsigned int length;
+	
+	length = 0;
+
+	while (s[length] != '\0')
+	{
+		length++;
+	}
+	return (length);
+}
+
+
 char *str_concat(char *s1, char *s2)
 {
 	char *concat_str;
