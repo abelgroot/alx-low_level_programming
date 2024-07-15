@@ -2,17 +2,16 @@
 #include <stdlib.h>
 
 /**
-* str_concat - concatenates two strings
-* @s1: the first string
-* @s2: the second string
+* _strlen - length of a string
+* @s: input string
 *
-* Return: a pointer to the newly allocated space in memory containing
-*         the concatenated strings, or NULL if it fails
+* Return: the size of the string
 */
+
 unsigned int _strlen(char *s)
 {
 	unsigned int length;
-	
+
 	length = 0;
 
 	while (s[length] != '\0')
@@ -22,6 +21,15 @@ unsigned int _strlen(char *s)
 	return (length);
 }
 
+
+/**
+* str_concat - concatenates two strings
+* @s1: the first string
+* @s2: the second string
+*
+* Return: a pointer to the newly allocated space in memory containing
+*         the concatenated strings, or NULL if it fails
+*/
 
 char *str_concat(char *s1, char *s2)
 {
