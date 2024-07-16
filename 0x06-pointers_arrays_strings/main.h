@@ -12,6 +12,6 @@ char *cap_string(char *);
 char *leet(char *);
 char *rot13(char *);
 void print_number(int n);
-
+ void free_grid(int **grid, int height);
 
 #endif /* MAIN_H */
