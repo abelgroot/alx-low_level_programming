@@ -28,7 +28,7 @@ int count_words(char *str)
 }
 
 /**
-* word_len - Finds the length of the next word in the string
+* word_length - Finds the length of the next word in the string
 * @str: The string to check
 *
 * Return: The length of the next word
