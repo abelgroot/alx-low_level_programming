@@ -33,7 +33,7 @@ int count_words(char *str)
 *
 * Return: The length of the next word
 */
-int word_len(char *str)
+int word_length(char *str)
 {
 	int len = 0;
 
@@ -92,7 +92,7 @@ char **strtow(char *str)
 		while (str[k] == ' ')
 			k++;
 
-		word_len = word_len(&str[k]);
+		word_len = word_length(&str[k]);
 
 		words[i] = allocate_word(&str[k], word_len);
 		if (words[i] == NULL)
