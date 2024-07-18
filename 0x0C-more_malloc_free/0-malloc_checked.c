@@ -10,7 +10,6 @@
 
 void *malloc_checked(unsigned int b)
 {
-	int status = 98;
 	if (malloc(b) == NULL)
 		return (malloc(98));
 	return (malloc(b));
