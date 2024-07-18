@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * str_length - function that give length of string
+ * _strlen - function that give length of string
  * @str: input string
  *
  * Return: string length
@@ -38,10 +38,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len1 = _strlen(s1);
 	if (s2 != NULL)
 		len2 = _strlen(s2);
-	
+
 	if (n <= len2)
-		len2 = n; 
-		
+		len2 = n;
+
 	concat_str = malloc((len1 + len2 + 1) * sizeof(char));
 
 	if (concat_str == NULL)
