@@ -1,76 +1,56 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "dog.h"
 
 /**
-* _strlen - Calculates the length of a string.
-* @s: The string whose length is to be calculated.
+* new_dog - creates a new dog
+* @name: name of the dog
+* @age: age of the dog
+* @owner: owner of the dog
 *
-* Return: The length of the string.
-*/
-int _strlen(char *s)
-{
-	int length = 0;
-
-	while (s[length] != '\0')
-		length++;
-
-	return (length);
-}
-
-/**
-* _strdup - Duplicates a string.
-* @s: The string to be duplicated.
-*
-* Return: A pointer to the duplicated string, or NULL if it fails.
-*/
-char *_strdup(char *s)
-{
-	int length = _strlen(s);
-	char *dup;
-
-	dup = (char *)malloc(length + 1);
-	if (dup == NULL)
-		return (NULL);
-
-	for (int i = 0; i < length; i++)
-		dup[i] = s[i];
-	dup[length] = '\0';
-
-	return (dup);
-}
-
-/**
-* new_dog - Creates a new dog.
-* @name: The name of the new dog.
-* @age: The age of the new dog.
-* @owner: The owner of the new dog.
-*
-* Return: A pointer to the new dog_t object, or NULL if it fails.
+* Return: pointer to the new dog (dog_t), or NULL if it fails
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *d;
-	char *name_copy, *owner_copy;
+	dog_t *dog;
+	char *name_copy;
+	char *owner_copy;
+	int name_len = 0, owner_len = 0, i;
 
-	d = (dog_t *)malloc(sizeof(dog_t));
-	if (d == NULL)
+	while (name[name_len] != '\0')
+		name_len++;
+
+	while (owner[owner_len] != '\0')
+		owner_len++;
+
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
 		return (NULL);
 
-	name_copy = _strdup(name);
-	owner_copy = _strdup(owner);
-
-	if (name_copy == NULL || owner_copy == NULL)
+	name_copy = malloc(name_len + 1);
+	if (name_copy == NULL)
 	{
-		free(d);
-		free(name_copy);
-		free(owner_copy);
+		free(dog);
 		return (NULL);
 	}
 
-	d->name = name_copy;
-	d->age = age;
-	d->owner = owner_copy;
+	owner_copy = malloc(owner_len + 1);
+	if (owner_copy == NULL)
+	{
+		free(name_copy);
+		free(dog);
+		return (NULL);
+	}
 
-	return (d);
+	for (i = 0; i <= name_len; i++)
+		name_copy[i] = name[i];
+
+	for (i = 0; i <= owner_len; i++)
+		owner_copy[i] = owner[i];
+
+	dog->name = name_copy;
+	dog->age = age;
+	dog->owner = owner_copy;
+
+	return (dog);
 }
+
