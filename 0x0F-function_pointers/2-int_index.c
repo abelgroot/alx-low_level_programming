@@ -1,4 +1,4 @@
-#include "function_pinters.h"
+#include "function_pointers.h"
 
 /**
 * int_index - function taht searches for an integer.
