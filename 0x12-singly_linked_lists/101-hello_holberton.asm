@@ -1,17 +1,15 @@
 section .data
-	msg db "Hello, Holberton", 0   ; Format string for printf
+    msg db 'Hello, Holberton', 10, 0  
 
 section .text
-	extern printf
-	global main
+    global main
 
 main:
-	; Call printf
-	mov rdi, msg       ; First argument to printf (the format string)
-	call printf        ; Call the printf function
- 
-	; Return from main
-	; The C runtime will handle returning control to the operating system
-	mov eax, 0         ; Return code 0
-	ret                ; Return to the calling function (C runtime)
+    mov rdi, msg  
+    xor rax, rax 
+    call printf
+    mov rax, 60  
+    xor rdi, rdi
+    syscall
 
+extern printf
