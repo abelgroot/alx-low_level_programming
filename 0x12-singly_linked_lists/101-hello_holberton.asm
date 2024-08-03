@@ -10,7 +10,8 @@ main:
 	mov rdi, msg                   ; First argument to printf (the format string)
 	xor rax, rax                   ; Clear the RAX register (required for variadic functions in x86-64 ABI)
 	call printf                    ; Call the printf function
-	
+
 	; Return from main
 	mov eax, 0                     ; Return code 0
 	ret                            ; Return to the calling function (C runtime)
+
