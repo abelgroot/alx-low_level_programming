@@ -1,15 +1,16 @@
 section .data
-    msg db 'Hello, Holberton', 10, 0  
+	msg db "Hello, Holberton", 0   ; Format string for printf
 
 section .text
-    global main
+	extern printf                  ; Declare the printf function from the C library
+	global main                    ; Define the entry point for the linker
 
 main:
-    mov rdi, msg  
-    xor rax, rax 
-    call printf
-    mov rax, 60  
-    xor rdi, rdi
-    syscall
-
-extern printf
+	; Set up the first argument to printf (the format string)
+	mov rdi, msg                   ; First argument to printf (the format string)
+	xor rax, rax                   ; Clear the RAX register (required for variadic functions in x86-64 ABI)
+	call printf                    ; Call the printf function
+	
+	; Return from main
+	mov eax, 0                     ; Return code 0
+	ret                            ; Return to the calling function (C runtime)
