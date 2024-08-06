@@ -3,16 +3,15 @@ section .data
 
 section .text
 	extern printf                      ; Declare the printf function from the C library
-	global _start                      ; Define the entry point for the linker
+	global main                        ; Define the entry point for the linker
 
-_start:
+main:
 	; Set up the first argument to printf (the format string)
 	mov rdi, msg                       ; First argument to printf (the format string)
 	xor rax, rax                       ; Clear the RAX register (required for variadic functions in x86-64 ABI)
 	call printf                        ; Call the printf function
 
-	; Exit the program
-	mov rax, 60                        ; The syscall number for exit
-	xor rdi, rdi                       ; The exit code 0
-	syscall                            ; Invoke the system call
+	; Return from main	
+	mov eax, 0                         ; Return code 0
+	ret                                ; Return to the calling function (C runtime)
 
