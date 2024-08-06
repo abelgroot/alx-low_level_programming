@@ -14,7 +14,7 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *fast = head;
 	const listint_t *loop_start = NULL;
 	const listint_t *node = head;
-	const listint_t *loop_node = NULL; 
+	const listint_t *loop_node = NULL;
 	size_t count = 0;
 	int loop_detected = 0;
 
