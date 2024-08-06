@@ -3,16 +3,20 @@
 #include "lists.h"
 
 /**
-* print_listint_safe - prints a listint_t linked list safely (handles loops)
-* @head: pointer to the head of the list
+* print_listint_safe - Prints a listint_t linked list safely (handles loops).
+* @head: Pointer to the head of the list.
 *
-* Return: the number of nodes in the list
+* Return: The number of nodes in the list.
 */
 size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *slow = head;
 	const listint_t *fast = head;
+	const listint_t *loop_start = NULL;
+	const listint_t *node = head;
+	const listint_t *loop_node = NULL; 
 	size_t count = 0;
+	int loop_detected = 0;
 
 	if (head == NULL)
 	{
@@ -21,36 +25,54 @@ size_t print_listint_safe(const listint_t *head)
 
 	while (fast != NULL && fast->next != NULL)
 	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
-
 		slow = slow->next;
 		fast = fast->next->next;
 
 		if (slow == fast)
 		{
-			printf("[%p] %d\n", (void *)slow, slow->n);
-			count++;
-			slow = slow->next;
-
-			while (slow != fast)
-			{
-				printf("[%p] %d\n", (void *)slow, slow->n);
-				count++;
-				slow = slow->next;
-			}
-
-			printf("-> [%p] %d\n", (void *)slow, slow->n);
-			return (count);
+			loop_detected = 1;
+			break;
 		}
 	}
 
-	slow = head;
-	while (slow != NULL)
+	if (loop_detected)
 	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
+		slow = head;
+		while (slow != fast)
+		{
+			slow = slow->next;
+			fast = fast->next;
+		}
+		loop_start = slow;
+
+		node = head;
+		while (node != loop_start)
+		{
+			printf("[%p] %d\n", (void *)node, node->n);
+			node = node->next;
+			count++;
+		}
+
+		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
 		count++;
-		slow = slow->next;
+
+		loop_node = loop_start->next;
+		while (loop_node != loop_start)
+		{
+			printf("[%p] %d\n", (void *)loop_node, loop_node->n);
+			loop_node = loop_node->next;
+			count++;
+		}
+	}
+	else
+	{
+		node = head;
+		while (node != NULL)
+		{
+			printf("[%p] %d\n", (void *)node, node->n);
+			node = node->next;
+			count++;
+		}
 	}
 
 	return (count);
