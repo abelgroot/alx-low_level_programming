@@ -12,9 +12,6 @@ size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *slow = head;
 	const listint_t *fast = head;
-	const listint_t *loop_start = NULL;
-	const listint_t *node = head;
-	const listint_t *loop_node = NULL;
 	size_t count = 0;
 	int loop_detected = 0;
 
@@ -23,14 +20,12 @@ size_t print_listint_safe(const listint_t *head)
 		printf("%d\n", 0);
 		exit(98);
 	}
-
 	if (fast == fast->next)
 	{
 		printf("[%p] %d\n", (void *)fast, fast->n);
 		printf("-> [%p] %d\n", (void *)fast, fast->n);
 		return (1);
 	}
-
 	if (fast == (fast->next)->next)
 	{
 		printf("[%p] %d\n", (void *)fast, fast->n);
@@ -49,27 +44,41 @@ size_t print_listint_safe(const listint_t *head)
 			break;
 		}
 	}
+	count = print_loop(head, fast, loop_detected);
+	return (count);
+}
+
+/**
+* print_loop - print the loops iteratively supportive func.
+*	@head: the list head.
+*	@fast: next fast list pointer.
+*	@loop_detected: 1 if loop detected, 0 otherwise.
+*
+*	Return: the count of the nodes.
+*/
+size_t print_loop(const listint_t *head,
+	const listint_t *fast, int loop_detected)
+{
+	const listint_t *slow = head, *node = head;
+	const listint_t *loop_start = NULL, *loop_node = NULL;
+	size_t count = 0;
 
 	if (loop_detected)
 	{
-		slow = head;
 		while (slow != fast)
 		{
 			slow = slow->next;
 			fast = fast->next;
 		}
 		loop_start = slow;
-		node = head;
 		while (node != loop_start)
 		{
 			printf("[%p] %d\n", (void *)node, node->n);
 			node = node->next;
 			count++;
 		}
-
 		printf("[%p] %d\n", (void *)loop_start, loop_start->n);
 		count++;
-
 		loop_node = loop_start->next;
 		while (loop_node != loop_start)
 		{
@@ -89,6 +98,5 @@ size_t print_listint_safe(const listint_t *head)
 			count++;
 		}
 	}
-
 	return (count);
 }
