@@ -13,7 +13,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int mask = 1;
 	unsigned long int shifted = n >> index;
 	if (n == ULONG_MAX && index >= 64)
-		return (0);
+		return (-1);
 	if (shifted == 0)
 		return (0);
 
