@@ -7,7 +7,6 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int mask = 1;
-	int bits = sizeof(n) * 8;
 
 	while ((mask << 1) <= n)
 		mask <<= 1;
