@@ -19,5 +19,8 @@ int main(void)
 	n = 98;
 	clear_bit(&n, 1);
 	printf("%lu\n", n);
+	n = 5;
+	clear_bit(&n, 2);
+	printf("%lu\n", n);
 	return (0);
 }
