@@ -1,4 +1,4 @@
-#|include "main.h"
+#include "main.h"
 #include "limits.h"
 
 /**
@@ -12,7 +12,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int mask = 1;
 
-	if (*n == ULONG_MAX || index >= 64)
+	if (index >= 64)
 		return (-1);
 	mask = mask << index;
 	*n = (*n | mask);
