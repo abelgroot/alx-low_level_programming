@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <limits.h>
 
 /**
  * main - check the code
@@ -15,6 +16,8 @@ int main(void)
 	n = get_bit(98, 1);
 	printf("%d\n", n);
 	n = get_bit(1024, 0);
+	printf("%d\n", n);
+	n = get_bit(ULONG_MAX, 63);
 	printf("%d\n", n);
 	return (0);
 }
