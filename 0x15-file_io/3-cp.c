@@ -10,11 +10,14 @@
 * error_exit - Prints an error message to stderr and exits with the given code.
 * @code: The exit code.
 * @format: The format string for the error message.
-* @arg: The argument for the format string.
 */
-void error_exit(int code, const char *format, const char *arg)
+void error_exit(int code, const char *format, ...)
 {
-	dprintf(STDERR_FILENO, format, arg);
+	va_list args;
+
+	va_start(args, format);
+	vfprintf(stderr, format, args);
+	va_end(args);
 	exit(code);
 }
 
@@ -32,7 +35,7 @@ int main(int argc, char *argv[])
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-		error_exit(97, "Usage: cp %s %s\n", "");
+		error_exit(97, "Usage: cp %s %s\n", argv[1], argv[2]);
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
