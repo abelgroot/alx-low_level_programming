@@ -1,4 +1,4 @@
-#include <strings.h>
+#include <string.h>
 #include "hash_tables.h"
 
 /**
