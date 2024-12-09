@@ -14,10 +14,8 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 main.o: main.c m.h
-	$(CC) -c $(CFLAGS) main.c 
 
 school.o: school.c m.h
-	$(CC) -c $(CFLAGS) school.c 
 
 clean:
 	$(RM) *~ *.swp \#*\#
@@ -26,6 +24,6 @@ oclean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
