@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-clean:
+clean: RM = rm -f
 	$(RM) *~ *.swp \#*\#
 
 oclean:
