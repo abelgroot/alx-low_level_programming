@@ -11,7 +11,6 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 %.o: %.c m.h
-	$(CC) -c $<
 
 clean: RM = rm -f
 	$(RM) *~ \#*\# *.swp *.tmp $(NAME)
